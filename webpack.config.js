@@ -10,4 +10,16 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js'
   },
+  module: {
+    rules: [
+      // add a rule for each file type for compilation
+      {
+        test: /\.scss$/, // any file with .scss extension use the following
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      }]
+  }
 }
