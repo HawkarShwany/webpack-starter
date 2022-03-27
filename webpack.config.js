@@ -9,7 +9,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js'
+    filename: '[name][contenthash].js' // [name] is for filename to be dynamic based on entry. [contenthash] is for cacheing which improves build speed
   },
   module: {
     rules: [
