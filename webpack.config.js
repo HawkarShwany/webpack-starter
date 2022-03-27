@@ -12,6 +12,7 @@ module.exports = {
     filename: '[name][contenthash].js', // [name] is for filename to be dynamic based on entry. [contenthash] is for cacheing which improves build speed
     clean: true
   },
+  devtool: 'source-map', // addes mapping to your code for debugging
   devServer:{
     static:{
       directory: path.resolve(__dirname, 'dist') // serve dist folder
