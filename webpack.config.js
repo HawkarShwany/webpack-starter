@@ -13,13 +13,13 @@ module.exports = {
     clean: true
   },
   devtool: 'source-map', // addes mapping to your code for debugging
-  devServer:{
-    static:{
+  devServer: {
+    static: {
       directory: path.resolve(__dirname, 'dist') // serve dist folder
     },
     port: 3000,
     open: true, // open browser automatically
-    hot:true, // use hot reloading
+    hot: true, // use hot reloading
     compress: true, // enable gzip compression 
     historyApiFallback: true,
   },
@@ -33,9 +33,16 @@ module.exports = {
           'css-loader',
           'sass-loader'
         ]
-      }]
+      }, {
+        // use babel to be backwards compatible for older browsers
+        test: /\.js$/, // anything with .js extension node_modules excluded
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        }
+      },]
   },
-  plugins:[
+  plugins: [
     new HtmlWebpackPlugin({
       title: 'Webpack App',
       filename: 'index.html',
