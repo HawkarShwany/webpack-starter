@@ -11,6 +11,16 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name][contenthash].js' // [name] is for filename to be dynamic based on entry. [contenthash] is for cacheing which improves build speed
   },
+  devServer:{
+    static:{
+      directory: path.resolve(__dirname, 'dist') // serve dist folder
+    },
+    port: 3000,
+    open: true, // open browser automatically
+    hot:true, // use hot reloading
+    compress: true, // enable gzip compression 
+    historyApiFallback: true,
+  },
   module: {
     rules: [
       // add a rule for each file type for compilation
