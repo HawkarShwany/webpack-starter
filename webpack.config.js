@@ -10,7 +10,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name][contenthash].js', // [name] is for filename to be dynamic based on entry. [contenthash] is for cacheing which improves build speed
-    clean: true
+    clean: true,
+    assetModuleFilename: '[name][ext]'
   },
   devtool: 'source-map', // addes mapping to your code for debugging
   devServer: {
@@ -40,6 +41,9 @@ module.exports = {
         use: {
           loader: 'babel-loader',
         }
+      },{
+        test: /\.(png|svg|jpg|jpeg|gif)$/i, // i is for case insensitive
+        type: 'asset/resource'
       },]
   },
   plugins: [
