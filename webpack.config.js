@@ -9,7 +9,8 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name][contenthash].js' // [name] is for filename to be dynamic based on entry. [contenthash] is for cacheing which improves build speed
+    filename: '[name][contenthash].js', // [name] is for filename to be dynamic based on entry. [contenthash] is for cacheing which improves build speed
+    clean: true
   },
   devServer:{
     static:{
